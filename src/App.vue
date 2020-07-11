@@ -5,6 +5,8 @@
     <ExtendProps msg="混合式：原始寫法 + Class Componentprops" />
     <hr />
     <OriginExtend msg="Use OriginExtend" />
+    <hr />
+    <Login />
   </div>
 </template>
 
@@ -13,12 +15,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import ClassComponent from './components/ClassComponent.vue';
 import ExtendProps from './components/ExtendProps.vue';
 import OriginExtend from './components/OriginExtend.vue';
+import Login from './components/Login.vue';
 
 @Component({
   components: {
     ClassComponent,
     ExtendProps,
-    OriginExtend
+    OriginExtend,
+    Login
   }
 })
 export default class App extends Vue {}
