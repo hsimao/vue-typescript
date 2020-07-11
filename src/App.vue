@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <ClassComponent msg="Use Class Component vue-property-decorator" />
+    <hr />
+    <ExtendProps msg="混合式：原始寫法 + Class Componentprops" />
+    <hr />
+    <OriginExtend msg="Use OriginExtend" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import ClassComponent from './components/ClassComponent.vue';
+import ExtendProps from './components/ExtendProps.vue';
+import OriginExtend from './components/OriginExtend.vue';
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    ClassComponent,
+    ExtendProps,
+    OriginExtend
+  }
 })
 export default class App extends Vue {}
 </script>
