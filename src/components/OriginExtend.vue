@@ -3,6 +3,15 @@
     <h1>{{ msg }}</h1>
     name {{ name }}
     <input type="text" @input="handleChangeName($event)" />
+    <hr />
+
+    <ul>
+      <li v-for="article in articles" :key="article.id">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.subtitle }}</p>
+      </li>
+    </ul>
+    <button @click="handleAddArticle">Random Article</button>
   </div>
 </template>
 
@@ -12,6 +21,12 @@ interface ApiParams {
   name: string;
   age: number;
   isAdmin?: boolean;
+}
+
+interface Article {
+  id: number;
+  title: string;
+  subtitle: string;
 }
 
 import Vue from 'vue';
@@ -26,7 +41,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      name: 'Mars' as string
+      name: 'Mars' as string,
+      articles: [] as Article[]
     };
   },
   watch: {
@@ -52,6 +68,16 @@ export default Vue.extend({
     },
     handleAPI(params: ApiParams) {
       console.log('params', params);
+    },
+    handleAddArticle() {
+      const id = Math.floor(Math.random() * 100);
+      const article: Article = {
+        id,
+        title: `title ${id}`,
+        subtitle: `subtitle ${id}`
+      };
+
+      this.articles.push(article);
     }
   }
 });
